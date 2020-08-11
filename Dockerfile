@@ -12,7 +12,7 @@ RUN useradd -m -U -u $USER_UID $USER_NAME
 
 USER $USER_UID
 RUN echo $HOME
-WORKDIR "$HOME"
+WORKDIR /home/jenkins
 
 RUN curl -s "https://get.sdkman.io" | bash
 
