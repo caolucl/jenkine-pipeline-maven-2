@@ -23,6 +23,7 @@ RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && \
     yes | sdk install java $JAVA_VERSION && \
     yes | sdk install maven $MAVEN_VERSION && \
     sdk flush archives && sdk flush temp"
+RUN mkdir $HOME/.m2 && chown $USER_NAME: $HOME/.m2
     
     
 RUN ls -la $HOME
