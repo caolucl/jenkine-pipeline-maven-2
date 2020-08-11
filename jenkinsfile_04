@@ -1,0 +1,29 @@
+#!groovy
+
+pipeline {
+    environment {
+        maven_version = "3.6.0-jdk-13"
+    }
+    agent {
+        docker {
+            image "maven:${env.maven_version}"
+            label "docker"
+            args "-v /tmp/maven:/var/maven/.m2 -e MAVEN_CONFIG=/var/maven/.m2"
+        }
+    }
+
+    stages {
+        stage("Build") {
+            steps {
+                sh "mvn -version"
+                sh "mvn clean install"
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
