@@ -16,6 +16,10 @@ pipeline {
                         """.stripIndent().trim()
 
                         args "-v /tmp/maven:/home/jenkins/.m2"
+                        
+                        //chown jenkins: /tmp/maven
+                        //chmod 775 /tmp/maven
+
                     }
                 }
                 axes {
