@@ -25,7 +25,7 @@ RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && \
     sdk flush archives && sdk flush temp"
     
     
-
+RUN ls -la $HOME
 ENV JAVA_HOME="/home/jenkins/.sdkman/candidates/java/current"
 ENV MAVEN_HOME="/home/jenkins/.sdkman/candidates/maven/current"
 ENV PATH="$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH"
