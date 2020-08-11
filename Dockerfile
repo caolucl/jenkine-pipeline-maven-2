@@ -11,17 +11,20 @@ ARG USER_NAME="jenkins"
 RUN useradd -m -U -u $USER_UID $USER_NAME
 
 USER $USER_UID
+RUN echo $HOME
+WORKDIR $HOME
 
 RUN curl -s "https://get.sdkman.io" | bash
 
-ARG JAVA_VERSION="11.0.7-amzn"
+ARG JAVA_VERSION="11.0.8-amzn"
 ARG MAVEN_VERSION="3.6.3"
 
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && \
     yes | sdk install java $JAVA_VERSION && \
     yes | sdk install maven $MAVEN_VERSION && \
-    sdk flush archives && \
-    sdk flush temp"
+    sdk flush archives && sdk flush temp"
+    
+    
 
 ENV JAVA_HOME="/home/jenkins/.sdkman/candidates/java/current"
 ENV MAVEN_HOME="/home/jenkins/.sdkman/candidates/maven/current"
