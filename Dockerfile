@@ -10,7 +10,7 @@ ARG USER_NAME="jenkins"
 
 RUN useradd -m -U -u $USER_UID $USER_NAME
 
-USER root
+USER $USER_NAME
 RUN echo $HOME
 WORKDIR /home/jenkins
 
