@@ -32,7 +32,7 @@ pipeline {
                     stage("Build") {
                         steps {
                             sh "mvn -version"
-                            sh "mvn -DskipTests clean package -e"
+                            sh "mvn -DskipTests clean package -X"
                         }
                     }
                     stage("Test") {
