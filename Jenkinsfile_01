@@ -15,10 +15,10 @@ pipeline {
         }
     }
 
-    post {
-        always {
+    //post {
+    //    always {
             //cleanWs()
-            sh "echo Completed"
-        }
-    }
+    //        sh "echo Completed"
+    //    }
+    //}
 }
